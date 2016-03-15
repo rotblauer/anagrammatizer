@@ -45,16 +45,16 @@
     // line-height: 0.9em;
     // height: 42px;
     // line-height: 1.4em;
+    padding-left: 4px;
     &.original {
-      line-height: 0.95em;
+      line-height: 1em;
       color: darken(gray, 5%) !important;
+
     }
     &.newer {
-      line-height: 0.95em;
+      line-height: 1em;
       color: $calm !important;
-    }
-    &.penname {
-      color: $balanced;
+      // padding-left: 4px;
     }
   }
 }
