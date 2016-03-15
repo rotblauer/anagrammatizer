@@ -4,13 +4,19 @@ require 'faker'
 
 # puts Faker::Hipster.sentence(3, false, 0)
 
-obj = {}
+# Faker::StarWars.character
+# Faker::Beer.name
+# Faker::Superhero.name
+# Faker::Company.catch_phrase
+# Faker::Commerce.product_name
 
-for i in 3..6
-  obj[i] = []
-  100.times do |t|
-    obj[i].push(Faker::Book.title) #::Hacker.sentence(i, false, 0))
-  end
+arr = []
+
+
+
+100.times do |t|
+  arr.push(Faker::Company.catch_phrase) #::Hacker.sentence(i, false, 0))
 end
 
-File.write('testFakeBookTitle.json', obj)
+
+File.write('fakeBusinessJargon.json', arr)

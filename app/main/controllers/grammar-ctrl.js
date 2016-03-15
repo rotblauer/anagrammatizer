@@ -52,9 +52,22 @@ angular.module('main')
     if (genre === 'hipster') {
       $scope.words.original = MathFactory.shuffle(scrabble.HIP_SENTENCES[numWords.toString()])[0];
     }
-    else {
+    else if (genre === 'books') {
       $scope.words.original = MathFactory.shuffle(scrabble.BOOK_TITLES)[0];
     }
+    else if (genre === 'beers') {
+      $scope.words.original = MathFactory.shuffle(scrabble.BEERS)[0];
+    }
+    else if (genre === 'starwars') {
+      $scope.words.original = MathFactory.shuffle(scrabble.STARWARS_CHARACTERS)[0];
+    }
+    else if (genre === 'superheroes') {
+      $scope.words.original = MathFactory.shuffle(scrabble.SUPERHEROES)[0];
+    }
+    else if (genre === 'products') {
+      $scope.words.original = MathFactory.shuffle(scrabble.PRODUCTS)[0];
+    }
+
     // switch (genre) {
     //   case 'hipster':
     //     $scope.words.original = MathFactory.shuffle(scrabble.HIP_SENTENCES[numWords.toString()])[0];
@@ -84,10 +97,15 @@ angular.module('main')
      // Show the action sheet
      var hideSheet = $ionicActionSheet.show({
        buttons: [
+         { text: 'Book titles' },
+         { text: 'Beers' },
+         { text: 'Star Wars Characters' },
+         { text: 'Superheroes' },
+         { text: 'Products' },
          { text: 'Hipster gibberishes (Short)' },
          { text: 'Hipster gibberishes (Medium)' },
-         { text: 'Hipster gibberishes (Long)' },
-         { text: 'Book titles' }
+         { text: 'Hipster gibberishes (Long)' }
+
        ],
        cancelText: 'Cancel',
        cancel: function() {
@@ -97,16 +115,30 @@ angular.module('main')
         $log.log(index);
         // var genre = 'hipster';
         // var num = 3;
+
           if (index === 0) {
-              insertRandomSentence('hipster', 3);
+              insertRandomSentence('books', 0);
           }
           else if (index === 1) {
-              insertRandomSentence('hipster', 4);
+              insertRandomSentence('beers', 0);
           }
           else if (index === 2) {
+              insertRandomSentence('starwars', 0);
+          }
+          else if (index === 3) {
+              insertRandomSentence('superheroes', 0);
+          }
+          else if (index === 4) {
+              insertRandomSentence('products', 0);
+          }
+          else if (index === 5) {
+              insertRandomSentence('hipster', 3);
+          }
+          else if (index === 6) {
+              insertRandomSentence('hipster', 4);
+          }
+          else if (index === 7) {
               insertRandomSentence('hipster', 5);
-          } else {
-              insertRandomSentence('books', 0);
           }
 
         return true;
