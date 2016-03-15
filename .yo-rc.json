@@ -1,0 +1,23 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "Anagramatizer",
+      "appId": "com.rotblauer.anagramatizer",
+      "ionicCss": false,
+      "bowerPackages": [
+        "angular-dynamic-locale#~0.1.27",
+        "angular-translate#~2.8.1",
+        "angular-translate-loader-static-files#~2.8.1",
+        "angular-localForage#~1.2.3"
+      ],
+      "platforms": [
+        "ios"
+      ],
+      "plugins": [
+        "cordova-plugin-device",
+        "com.ionic.keyboard"
+      ],
+      "appModule": "Anagramatizer"
+    }
+  }
+}
