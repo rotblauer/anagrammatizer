@@ -22,13 +22,13 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body ng-app="Anagramatizer">
+  <body ng-app="anagramatizer">
 
     <!-- the nav bar will be updated as we navigate between views -->
     <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
-    <ion-nav-bar class="bar-calm">
+    <!-- <ion-nav-bar class="bar-calm">
       <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
+    </ion-nav-bar> -->
     <!-- the current view will be rendered in the <ion-nav-view> directive -->
     <ion-nav-view></ion-nav-view>
 
@@ -55,6 +55,13 @@
     <!-- build:js scripts/app.js -->
     <!-- inject:js -->
     <script src="main/main.js"></script>
+    <script src="main/services/middling-serv.js"></script>
+    <script src="main/services/math-serv.js"></script>
+    <script src="main/services/local-storage-serv.js"></script>
+    <script src="main/services/alert-serv.js"></script>
+    <script src="main/controllers/test-ctrl.js"></script>
+    <script src="main/controllers/grammar-ctrl.js"></script>
+    <script src="main/constants/scrabble-const.js"></script>
     <script src="main/constants/config-const.js"></script>
     <script src="app.js"></script>
     <!-- endinject -->

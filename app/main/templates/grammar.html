@@ -1,0 +1,151 @@
+<ion-view view-title="Anagramatize!" scroll="false">
+<ion-content class="padding" scroll="false">
+
+  <ion-slide-box class="" active-slide="0" show-pager="false" on-slide-changed="slideChanged(index)" style="height: 100%;">
+
+
+
+    <!-- THE GAME SLIDE: ANNAGRAMMAR -->
+    <ion-slide>
+
+      <div class="wrapper padding" style="height: 60%; width: 100%; ">
+      <ion-scroll style="height: 55%;">
+        <div class="" style="margin: 10px; height: 100%;">
+
+            <!-- MIDDLING CALL -->
+            <h1 class="balanced">
+
+              <!-- SCRABBLE POINTS -->
+              <sup style="font-size: .6em;" ng-if="words.scrabblePoints() !== 0">
+                {{ words.scrabblePoints() }}
+              </sup>
+              {{ middling().inner }}
+            </h1>
+
+            <!-- OUTER ANSWER -->
+            <h1 class="assertive">
+              {{ middling().outer }}
+            </h1>
+
+        </div>
+      </ion-scroll>
+
+        <!-- CALL INPUT -->
+        <div class="list list-inset " style="min-height: 15%; margin-top: 3px; margin-bottom: 3px;">
+          <label class="item item-input original-input">
+            <textarea type="text" rows="2" class="original" placeholder="{{placeholder.ana}}" ng-model="words.original"></textarea>
+          </label>
+        </div>
+
+        <!-- ANSWER INPUT -->
+        <div class="list list-inset " style="min-height: 15%; margin-top: 3px; margin-bottom: 3px;">
+          <label class="item item-input">
+            <textarea type="text" rows="3" class="newer" placeholder="{{placeholder.grammar}}" ng-model="words.new"></textarea>
+          </label>
+        </div>
+
+
+        <!-- CLEAR BUTTON -->
+        <div class="row">
+          <div class="col-33">
+            <button class="button button-block button-clear button-assertive icon" ng-click="clear()">
+              <i class="icon ion-close-round"></i>
+            </button>
+          </div>
+          <div class="col-33">
+            <button class="button button-block button-clear button-positive icon" ng-click="promptShuffle()">
+              <i class="icon ion-shuffle"></i>
+            </button>
+          </div>
+          <div class="col-33">
+            <button class="button button-block button-clear button-balanced icon" ng-click="save()">
+              <i class="icon ion-archive"></i>
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+      <!-- INDICATORS SLIDE LEFT OR RIGHT -->
+      <div class="row padding " style="margin-top: 33%">
+      <div class="col-33">
+      </div>
+      <div class="col-33 text-center">
+        <button  class="button button-light button-block button-clear button-icon-right" ng-click="goToSaved()">
+          Saved
+          <i class="icon ion-arrow-right-c"></i>
+        </button>
+      </div>
+      <div class="col-33 text-center" >
+
+      </div>
+
+      </div>
+
+    </ion-slide>
+
+    <!-- SAVED ANAGRAMMARS -->
+
+    <ion-slide >
+    <ion-scroll style="height: 100%;">
+      <div class="wrapper padding" style="padding-top: 40px; padding-bottom: 40px;">
+
+        <div class="" ng-if="brainIndex.length === 0">  <!-- brainIndex.length <= 0 -->
+          <h3 >
+            <span class="type type-muted">
+              Feeling empty?
+            </span>
+            <br>
+            <span class="type type-calm">
+              Click
+              <span class="type type-balanced">
+                <i class="icon ion-archive"></i>
+              </span>
+              to save.
+            </span>
+          </h3>
+        </div>
+        <div ng-if="brainIndex.length > 0" >  <!-- ng-if="(brainIndex.length > 0)" -->
+
+          <h3 style="width: 100%;" ng-repeat='gram in brainIndex' >
+
+            <span class="type type-muted">
+              <sup style="font-size: .6em;">
+                {{ gram.data.scrabblePoints }}
+              </sup>
+              {{ gram.data.original }}
+            </span>
+            <br>
+            <span class="type type-calm">
+              {{ gram.data.revised }}
+        <!--       <sup style="font-size: .6em;" class="type type-assertive" ng-click="removeFromBrain(gram.id)">
+                <i class="icon ion-close-round"></i>
+              </sup> -->
+              <button class="button button-assertive button-small button-clear icon" ng-click="removeFromBrain(gram.id)">
+                <i class="icon ion-close-round"></i>
+              </button>
+              <button class="button button-positive button-small button-clear icon" ng-click="editAgain(gram.data.original, gram.data.revised)">
+                <i class="icon ion-edit"></i>
+              </button>
+            </span>
+          </h3>
+        </div>
+
+      </div>
+
+    </ion-scroll>
+    </ion-slide>
+
+
+
+
+  </ion-slide-box>
+
+</ion-content>
+</ion-view>
+
+

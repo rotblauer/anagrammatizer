@@ -1,0 +1,91 @@
+/* Mixin */
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// input[type="text"] {
+//   font-size: 2em;
+// }
+
+.item {
+  border: none;
+
+  input[type="text"] {
+    // font-size: 2em; //7vw;
+    // font-size: 7vw;
+    font-size: 1.75em;
+    // height: 1.4em;
+    // font-size: 2em;
+    // line-height: 0.9em;
+    // height: 42px;
+    // line-height: 1.4em;
+    overflow: wrap;
+    width: 100%;
+    &.original {
+      line-height: 0.92em;
+      color: darken(gray, 5%) !important;
+    }
+    &.newer {
+      line-height: 0.92em;
+      color: $calm !important;
+    }
+  }
+  textarea {
+    resize: none;
+    // font-size: 2em; //7vw;
+    // font-size: 7vw;
+    font-size: 1.75em;
+
+    // height: 1.4em;
+    // font-size: 2em;
+    // line-height: 0.9em;
+    // height: 42px;
+    // line-height: 1.4em;
+    &.original {
+      line-height: 0.95em;
+      color: darken(gray, 5%) !important;
+    }
+    &.newer {
+      line-height: 0.95em;
+      color: $calm !important;
+    }
+    &.penname {
+      color: $balanced;
+    }
+  }
+}
+
+.muted {
+  color: $muted;
+}
+
+.type {
+  &.type-muted {
+    color: $muted !important;
+  }
+  &.type-calm {
+    color: $calm;
+  }
+  &.type-balanced {
+    color: $balanced;
+  }
+  &.type-assertive {
+    color: $assertive;
+  }
+  &.type-positive {
+    color: $positive;
+  }
+
+}
+
+.login-icons {
+  @include vertical-align();
+}
+
+.vertical-align {
+  @include vertical-align();
+}
